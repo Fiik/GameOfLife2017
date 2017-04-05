@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="993.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.7557870370370371" layoutX="7.0" layoutY="38.0" prefHeight="566.0" prefWidth="985.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="948.0">
+               <children>
+                  <Canvas fx:id="canvas" height="564.0" layoutX="-1.0" layoutY="2.0" onMouseClicked="#mouseClick" onMouseDragged="#mouseDrag" width="738.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <GridPane layoutX="1.0" layoutY="-12.0" prefHeight="588.0" prefWidth="235.0" style="-fx-background-color: #DCDCDC;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="73.0" minWidth="0.0" prefWidth="7.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="221.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="7.0" prefWidth="7.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="427.0" minHeight="10.0" prefHeight="195.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="427.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="427.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="299.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="299.0" minHeight="9.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="329.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="329.0" minHeight="10.0" prefHeight="156.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OF LIFE" textAlignment="CENTER" wrappingWidth="215.60546875" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Marlett" size="36.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="By Jørgen Eide and Fikret Kadiric" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets top="150.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Speed modifier:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Slider fx:id="speedModifier" onMouseClicked="#speedMod" min="20" onMouseDragged="#speedMod" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin></Slider>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cell-Colour:" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets top="20.0" />
+                           </GridPane.margin></Text>
+                        <ColorPicker fx:id="colorPicker" onAction="#changeColor" prefHeight="39.0" prefWidth="157.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Slider fx:id="gameZoom" max="40" min="5" onMouseClicked="#zoomScale" onMouseDragged="#zoomScale" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zoom:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <GridPane layoutX="7.0" layoutY="604.0" prefHeight="68.0" prefWidth="985.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="486.0" minWidth="0.0" prefWidth="29.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="830.0" minWidth="10.0" prefWidth="451.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="876.0" minWidth="10.0" prefWidth="505.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#pause" prefHeight="35.0" prefWidth="90.0" text="Pause" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="110.0" />
+               </GridPane.margin></Button>
+            <Button mnemonicParsing="false" onAction="#clearEvent" prefHeight="31.0" prefWidth="90.0" text="Reset" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="330.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#playGame" prefHeight="35.0" prefWidth="90.0" text="Play" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="Next" mnemonicParsing="false" onAction="#nextEvent" prefHeight="31.0" prefWidth="90.0" text="Next" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="220.0" />
+               </GridPane.margin></Button>
+            <TextField fx:id="inputY" maxWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="350.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="inputX" maxWidth="50.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="270.0" />
+               </GridPane.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onAction="#drawCustomBord" text="Create Board" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="140.0" />
+               </GridPane.margin>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Y:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="335.0" />
+               </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="X:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="255.0" />
+               </GridPane.margin>
+            </Text>
+         </children>
+      </GridPane>
+      <MenuBar layoutX="-1.0" prefHeight="39.0" prefWidth="993.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="opengame" mnemonicParsing="false" onAction="#openFile" text="Upload board" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Options">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Board Size" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Rules">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Rules" />
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

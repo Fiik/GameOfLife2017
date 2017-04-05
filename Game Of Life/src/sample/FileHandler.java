@@ -109,6 +109,7 @@ public class FileHandler {
 
     }
 
+// Test av branch.
 
 //runcount
 // tall som kommer etter
